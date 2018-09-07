@@ -8,9 +8,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatRadioModule} from '@angular/material/radio';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const MODULES = [ MatCardModule, MatToolbarModule, MatInputModule,
-  MatFormFieldModule, MatListModule, MatIconModule, MatButtonModule, MatSliderModule ]
+  MatFormFieldModule, MatListModule, MatIconModule, MatButtonModule, MatSliderModule,
+MatRadioModule, MatMomentDateModule, MatDatepickerModule ]
 
 @NgModule({
   imports: MODULES,

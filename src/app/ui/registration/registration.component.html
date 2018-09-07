@@ -14,26 +14,46 @@
               <div class="col-lg-6 col-md-12">
                 <!--Name(text). Cannot be empty -->
                 <mat-form-field>
-                    <input matInput type="text" placeholder="Your Name" name="name" required ngModel>
+                        <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
+                            <input matInput type="text" [(ngModel)]="newUser.name" #name="ngModel" placeholder="Your Name" name="name" required class="form-control">
+                        </div>
+                        <span class="help-block" *ngIf="name.errors?.required && name.touched">
+                                User Name is required
+                              </span>
                 </mat-form-field>
 
                 <!--Email(email). Validation: Cannot be empty, Valid email -->
                 <br>
                 <mat-form-field>
-                    <input matInput type="email"  placeholder="Your Email" name="email" required ngModel>
+                    <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+                        <input matInput type="email" [(ngModel)]="newUser.email" #email="ngModel" placeholder="Your Email" name="email" required class="form-control">
+                    
+                    <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                        Email is required
+                    </span>
+                    <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                        Email is invalid
+                    </span>    
+                    </div>
                 </mat-form-field>
 
                 <!--Password(password). Validation: Cannot be empty.Strong Password-->
                 <br>
                 <mat-form-field>
-                    <input matInput type="password"  placeholder="Set Password Here" name="password" required ngModel>
+                    <div class="form-group" [class.has-error]="password.invalid && password.touched" [class.has-success]="password.valid">
+                        <input matInput type="password" [(ngModel)]="newUser.password" placeholder="Set Password Here" name="password" required #password="ngModel" minlength="8" class="form-control">
+                        <span class="help-block" *ngIf="password.invalid && password.touched">
+                            Password is required
+                        </span>
+                    </div>
+
                 </mat-form-field>
 
                 <!--Date of Birth(date picker). Validation: Cannot be empty. Must be 18 yrs old-->
                 <br>  
                 <!--Date Field-->
                 <mat-form-field class="example-full-width">
-                    <input matInput [matDatepicker]="datepicker" placeholder="Date Of Birth" ngModel name="birthdate">
+                    <input matInput [matDatepicker]="datepicker" [(ngModel)]="newUser.birthdate" placeholder="Date Of Birth" name="birthdate" #birthDate="ngModel" class="form-control">
                     <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                     <mat-datepicker #datepicker></mat-datepicker>
                 </mat-form-field>
@@ -41,26 +61,38 @@
               <div class="col-lg-6 col-md-12">
                 <!--Gender(radio). Validation: Cannot be empty-->
                 <span>Gender:</span><br>
-                <mat-radio-group name="gender" ngModel>
+                <mat-radio-group name="gender" [(ngModel)]="newUser.gender" #gender="ngModel" class="form-control">
                     <mat-radio-button value="male">Male</mat-radio-button><br>
                     <mat-radio-button value="female">Female</mat-radio-button>
                 </mat-radio-group>
                   <!--Address(text). Validation: Cannot be empty. -->
                   <br>
                   <mat-form-field>
-                      <input matInput type="text"  placeholder="Your Address" name="address" required ngModel>
+                    <div class="form-group" [class.has-error]="address.invalid && address.touched" [class.has-success]="address.valid">
+                      <input matInput type="text" [(ngModel)]="newUser.address" placeholder="Your Address" name="address" required #address="ngModel" class="form-control">
+                    </div>
                   </mat-form-field>
 
                   <!--Country(text/select field). Validation: Cannot be empty.-->
                   <br>
                   <mat-form-field>
-                      <input matInput type="text"  placeholder="Country" name="country" required ngModel>
+                        <div class="form-group" [class.has-error]="country.invalid && country.touched" [class.has-success]="country.valid">
+                      <input matInput type="text" [(ngModel)]="newUser.country" placeholder="Country" name="country" required #country="ngModel" class="form-control">
+                      </div>
+                      <span class="help-block" *ngIf="password.invalid && password.touched">
+                            Country is required
+                        </span>
                   </mat-form-field>
             
                   <!--Contact(text). Validation: Cannot be empty. No invalid characters-->
                   <br>
                   <mat-form-field>
-                      <input matInput type="text"  placeholder="Contact No" name="contact" required ngModel>
+                    <div class="form-group" [class.has-error]="contact.invalid && contact.touched" [class.has-success]="contact.valid">
+                      <input matInput type="text" [(ngModel)]="newUser.contact" #contact="ngModel" placeholder="Contact No" name="contact" required class="form-control">
+                      </div>
+                      <span class="help-block" *ngIf="password.invalid && password.touched">
+                            Contact is required
+                        </span>
                   </mat-form-field>
               </div>
             </div>

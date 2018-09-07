@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { UiModule } from './ui/ui.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +21,6 @@ import { UiModule } from './ui/ui.module';
     FlexLayoutModule,
     UiModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
