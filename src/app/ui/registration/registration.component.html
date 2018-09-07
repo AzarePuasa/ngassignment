@@ -1,3 +1,93 @@
-<mat-card>Registration
+<mat-card>
+    <mat-card-title>
+      Registration
+    </mat-card-title> 
+    <mat-card-subtitle>
+      Please fill in the required details below.
+    </mat-card-subtitle>
+    <mat-card-content>
+    </mat-card-content>
+    <hr>
+    <form #register="ngForm" (ngSubmit)="registerUser(register)">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <!--Name(text). Cannot be empty -->
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Your Name" name="name" required ngModel>
+                </mat-form-field>
+
+                <!--Email(email). Validation: Cannot be empty, Valid email -->
+                <br>
+                <mat-form-field>
+                    <input matInput type="email"  placeholder="Your Email" name="email" required ngModel>
+                </mat-form-field>
+
+                <!--Password(password). Validation: Cannot be empty.Strong Password-->
+                <br>
+                <mat-form-field>
+                    <input matInput type="password"  placeholder="Set Password Here" name="password" required ngModel>
+                </mat-form-field>
+
+                <!--Date of Birth(date picker). Validation: Cannot be empty. Must be 18 yrs old-->
+                <br>  
+                <!--Date Field-->
+                <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="datepicker" placeholder="Date Of Birth" ngModel name="birthdate">
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <!--Gender(radio). Validation: Cannot be empty-->
+                <span>Gender:</span><br>
+                <mat-radio-group name="gender" ngModel>
+                    <mat-radio-button value="male">Male</mat-radio-button><br>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+                  <!--Address(text). Validation: Cannot be empty. -->
+                  <br>
+                  <mat-form-field>
+                      <input matInput type="text"  placeholder="Your Address" name="address" required ngModel>
+                  </mat-form-field>
+
+                  <!--Country(text/select field). Validation: Cannot be empty.-->
+                  <br>
+                  <mat-form-field>
+                      <input matInput type="text"  placeholder="Country" name="country" required ngModel>
+                  </mat-form-field>
+            
+                  <!--Contact(text). Validation: Cannot be empty. No invalid characters-->
+                  <br>
+                  <mat-form-field>
+                      <input matInput type="text"  placeholder="Contact No" name="contact" required ngModel>
+                  </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+        <!--Submit & Clear button-->
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px">
+            <button type="reset" mat-button mat-raised-button color="primary">
+              <mat-icon>clear</mat-icon> Clear 
+            </button>
+            <button type="submit" mat-button mat-raised-button color="warn">
+              <mat-icon>home</mat-icon> Add 
+            </button>
+        </div>
+    </form>
+
+    <mat-card-footer>
+      <br>
+      <hr>
+      Note: 
+      <p>Password must adhere to the following strong password policies:</p>
+      <ul>
+        <li>have at least 8 characters</li>
+        <li>use both uppercase and lowercase letters (case sensitivity)</li>
+        <li>include one or more numerical digits</li>
+        <li>include one of these special characters @, #, $</li>
+      </ul> 
+    </mat-card-footer>
   
 </mat-card>

@@ -6,13 +6,14 @@ import { FooterComponent } from './footer/footer.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MaterialsModule } from '../materials.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule, 
     MaterialsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [LayoutComponent, HeaderComponent, FooterComponent, MainContentComponent, RegistrationComponent],
   exports: [LayoutComponent]
